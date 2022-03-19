@@ -1,0 +1,70 @@
+@import 'reset';
+@import "./common/mixins";
+@import "./common/variables";
+
+.aboutUs {
+
+  &__Advantages {
+    max-width: 1440px;
+    margin: 80px auto 100px auto;
+  }
+
+  &__Team {
+    max-width: 1440px;
+    margin: auto;
+    background: url("../icons/advantages/Team.jpg");
+    padding: 163px 268px;
+  }
+
+  &__TeamTitle {
+    @include textTeamTitle;
+    color: $White;
+  }
+
+  &__MoreDescription {
+    max-width: 1440px;
+    margin: 80px auto 93px auto;
+    padding: 0 172px;
+  }
+
+  &__Achievments {
+    background-color: $GreyBg;
+  }
+
+  &__AchievmentsWrapper {
+    max-width: 1440px;
+    margin: auto;
+    padding: 30px 60px;
+  }
+}
+
+
+
+
+@media (max-width: 767px) {
+
+  .aboutUs {
+
+        &__Advantages {
+      margin: 0;
+    }
+
+    &__Team {
+      background: url("../icons/advantages/Team.jpg") center;
+      padding: 124px 30px;
+    }
+
+    &__TeamTitle {
+      @include textTeamTitleMobile;
+    }
+
+    &__MoreDescription {
+      margin: 20px 20px 40px 20px;
+      padding: 0;
+    }
+
+    &__AchievmentsWrapper {
+      padding: 30px 20px;
+    }
+  }
+}

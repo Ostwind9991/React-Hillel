@@ -1,0 +1,179 @@
+@import "../common/mixins";
+@import "../common/variables";
+
+
+.HeaderWrapper {
+  max-width: 1440px;
+  padding: 3.47% 60px 0 60px;
+  margin: auto;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+
+    &__logo {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    &__hamburger {
+      display: none;
+    }
+
+    &__mobMenu {
+      display: none;
+    }
+
+    &__logoTitle {
+      @include textLogo;
+      color: $MainRegular;
+    }
+
+    &__wrapper {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+    &__wrapperLanguage {
+      display: flex;
+      @include textMenu;
+      color: $GreyText;
+      align-items: center;
+    }
+
+    &__language {
+      display: flex;
+    }
+
+    &__language span {
+      margin-left: 10px;
+      cursor: pointer;
+      padding: 5px;
+    }
+
+    &__language span:hover {
+      background-color: $Accent;
+      border-radius: 8px;
+    }
+
+    &__contact {
+      display: flex;
+      align-items: center;
+    }
+
+    &__contact &__tel, &__soc, &__address {
+      margin-left: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
+
+    &__tel:hover, &__address:hover {
+      color: $Accent;
+    }
+
+    &__contact &__tel::before, &__soc::before, &__address::before {
+      content: "";
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 100%;
+      background-color: #E6E6F0;
+      position: relative;
+      margin-right: 10px;
+    }
+
+
+    &__menu {
+      @include titleBlue;
+      color: $ActiveRegular;
+      cursor: pointer;
+    }
+
+    &__menuPItem {
+      display: inline-block;
+      margin-left: 15px;
+
+    }
+
+    &__menu li:hover {
+      color: $Accent;
+    }
+  }
+}
+.header__menuPItem:nth-child(1) {
+  color:$Accent;
+  text-decoration: underline;
+}
+
+
+@media (max-width: 767px) {
+  .HeaderWrapper {
+    padding: 20px 20px 0 20px;
+  
+      &__header {
+      flex-direction: column-reverse;
+
+        &__logo {
+          align-items: center;
+          justify-content: space-between;
+        }
+
+
+        &__logoImg {
+          max-width: 78px;
+          margin-top: 20px;
+        }
+
+        &__hamburger {
+          display: inline-block;
+          flex-grow: 1;
+          text-align: right;
+          margin-top: 10px;
+        }
+
+        &__logoTitle {
+          margin-top: 5px;
+          @include textMenuMobile;
+        }
+
+        &__logoSmall {
+          margin-top: 15px;
+          max-width: 21px;
+        }
+
+        &__wrapper {
+          flex-direction: row;
+        }
+
+        &__wrapperLanguage {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+        }
+
+        &__language span {
+          margin-left: 0;
+        }
+
+        &__contact {
+          justify-content: flex-end;
+        }
+
+        &__soc, &__address {
+          display: none;
+        }
+
+        &__contact &__tel::before, &__soc::before, &__address::before {
+          content: none;
+        }
+
+        &__menu {
+          display: none;
+        }
+    }
+  }
+}
+
