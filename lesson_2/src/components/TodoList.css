@@ -1,7 +1,7 @@
-.Active {
-    background-color: brown;
-}
+.ListTodo{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    padding: 0;
 
-.DiActive {
-    background-color: aqua;
 }

@@ -1,9 +1,10 @@
-import "./TodoList.css";
+import TodoItem from "./TodoItem"
 import React, { Component } from "react";
+import "./TodoList.css";
 
 export default class TodoList extends Component {
   state = {
-    food: [
+    todo: [
       {
         id: "14",
         title: "Сделать утреннюю зарядку",
@@ -36,64 +37,55 @@ export default class TodoList extends Component {
     super();
     this.onInputAdd = this.onInputAdd.bind(this);
     this.onInputChange = this.onInputChange.bind(this);
+    this.onCheckedChange = this.onCheckedChange.bind(this);
+    this.onInputDel = this.onInputDel.bind(this);
   }
 
   render() {
-    const { food } = this.state;
+    const { todo } = this.state;
     return (
       <>
+        <h1>TodoList</h1>
         <input type="text" onChange={this.onInputChange} />
         <button onClick={this.onInputAdd}>Add</button>
-        <h1>TodoList</h1>
-        <ul>
-          {food.map((el) => (
-            <li key={el.id} className={el.completed ? "DiActive" : "Active"}>
-              <input
-                type="checkbox"
-                defaultChecked={el.completed ? true : false}
-                onChange={() => this.onCheckedChange(el)}
-              />
-              {el.title}
-              <button key={el.id + "1"} onClick={() => this.onInputDel(el)}>
-                Delite
-              </button>
-            </li>
-          ))}
+        <ul className="ListTodo">
+        {todo.map((el) => (
+          <TodoItem el={el} key={el.id} onCheckedChange={this.onCheckedChange} onInputDel={this.onInputDel}/>
+        ))}
         </ul>
       </>
     );
   }
 
   onInputChange(e) {
-    const { newFood } = this.state;
-    this.setState({ newFood: e.target.value });
-    console.log(newFood);
+    this.setState({ newTodo: e.target.value });
   }
 
-  onCheckedChange(el) {
-    const { food } = this.state;
-    food.find((elem) => elem.id === el.id).completed = !food.find(
-      (elem) => elem.id === el.id
-    ).completed;
-    this.setState(food);
-  }
 
   onInputAdd() {
-    const { food, newFood } = this.state;
+    const { todo, newFood } = this.state;
     const arrFood = {};
-    const index = parseInt(food[food.length - 1].id);
-    console.log(index + 1);
+    const index = parseInt(todo[todo.length - 1].id);
     arrFood.id = `${index + 1}`;
     arrFood.title = `${newFood}`;
     arrFood.completed = false;
-    food.push(arrFood);
-    this.setState(food);
+    todo.push(arrFood);
+    this.setState({ todo: todo });
   }
 
-  onInputDel(el) {
-    const { food } = this.state;
-    const index = food.findIndex((x) => x.id === el.id);
-    food.splice(index, 1);
-    this.setState({ food: food });
+  onCheckedChange(el) {
+    const { todo} = this.state;
+    todo.find((elem) => elem.id === el.id).completed = !todo.find((elem) => elem.id === el.id).completed;
+    this.setState({ todo: todo });
   }
+
+  onInputDel(id) {
+    const newTodos = this.state.todo.filter((todo)=>todo.id !== id);
+    this.setState({ todo: newTodos });
+    // const { todo } = this.state;
+    // const index = todo.findIndex((x) => x.id === el.id);
+    // todo.splice(index, 1);
+    // this.setState({ todo: todo });
+  }
+
 }
