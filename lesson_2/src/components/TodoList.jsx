@@ -82,10 +82,6 @@ export default class TodoList extends Component {
   onInputDel(id) {
     const newTodos = this.state.todo.filter((todo)=>todo.id !== id);
     this.setState({ todo: newTodos });
-    // const { todo } = this.state;
-    // const index = todo.findIndex((x) => x.id === el.id);
-    // todo.splice(index, 1);
-    // this.setState({ todo: todo });
-  }
+   }
 
 }
