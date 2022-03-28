@@ -1,4 +1,4 @@
-import TodoItem from "./TodoItem"
+import TodoItem from "./TodoItem";
 import React, { Component } from "react";
 import "./TodoList.css";
 
@@ -48,10 +48,15 @@ export default class TodoList extends Component {
         <h1>TodoList</h1>
         <input type="text" onChange={this.onInputChange} />
         <button onClick={this.onInputAdd}>Add</button>
-        <ul className="ListTodo">
-        {todo.map((el) => (
-          <TodoItem el={el} key={el.id} onCheckedChange={this.onCheckedChange} onInputDel={this.onInputDel}/>
-        ))}
+        <ul className="list">
+          {todo.map((el) => (
+            <TodoItem
+              el={el}
+              key={el.id}
+              onCheckedChange={this.onCheckedChange}
+              onInputDel={this.onInputDel}
+            />
+          ))}
         </ul>
       </>
     );
@@ -61,27 +66,34 @@ export default class TodoList extends Component {
     this.setState({ newTodo: e.target.value });
   }
 
-
   onInputAdd() {
-    const { todo, newFood } = this.state;
+    const { todo, newTodo } = this.state;
     const arrFood = {};
-    const index = parseInt(todo[todo.length - 1].id);
-    arrFood.id = `${index + 1}`;
-    arrFood.title = `${newFood}`;
-    arrFood.completed = false;
-    todo.push(arrFood);
-    this.setState({ todo: todo });
+    let id = todo.map((el) => el.id);
+    let index = Date.now();
+    for (var a = 1; a > 0; a++) {
+      if (id.includes(`${index}`)) {
+        index++;
+      } else {
+        arrFood.id = String(index);
+        arrFood.title = `${newTodo}`;
+        arrFood.completed = false;
+        todo.push(arrFood);
+        this.setState({ todo: todo });
+        break;
+      }
+    }
   }
 
   onCheckedChange(el) {
-    const { todo} = this.state;
-    todo.find((elem) => elem.id === el.id).completed = !todo.find((elem) => elem.id === el.id).completed;
+    const { todo } = this.state;
+    const element = todo.find((elem) => elem.id === el.id);
+    element.completed = !element.completed;
     this.setState({ todo: todo });
   }
 
   onInputDel(id) {
-    const newTodos = this.state.todo.filter((todo)=>todo.id !== id);
+    const newTodos = this.state.todo.filter((todo) => todo.id !== id);
     this.setState({ todo: newTodos });
-   }
-
+  }
 }
