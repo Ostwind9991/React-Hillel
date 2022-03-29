@@ -1,0 +1,30 @@
+.forma{
+    display: flex;
+    flex-direction: column;
+    margin:0 15%;
+    align-items: center;
+}
+
+.forma input {
+    width: 100%;
+    margin-bottom: 3%;
+}
+
+.forma div {
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.forma button {
+    width: 150px;
+    padding: 5px;
+}
+
+.close {
+    background-color: firebrick;
+}
+
+.add {
+    background-color: aquamarine;
+}

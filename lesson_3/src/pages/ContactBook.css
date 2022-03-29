@@ -1,0 +1,41 @@
+.list {
+    display: flex;
+    flex-direction: column;
+    padding-inline-start:0;
+}
+
+.wrapper-contacts {
+    padding: 0 30%;
+    margin-bottom: 50px;
+}
+
+.wrapper-forma {
+    padding: 0 30%;
+    margin-bottom: 50px;
+}
+
+.title {
+    display: flex;
+    margin: 5px 0;
+    font-weight: 600;
+    border-bottom: 3px solid rgb(138, 40, 40);
+}
+
+.title span {
+    flex-basis: 230px;
+    text-align: left;
+}
+
+.inactively {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.add-contact {
+    width: 150px;
+    padding: 5px;
+    background-color: aquamarine;
+}
