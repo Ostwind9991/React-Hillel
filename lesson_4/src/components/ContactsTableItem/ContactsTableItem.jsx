@@ -1,4 +1,4 @@
-import "./Contacts.css";
+import "./ContactsTableItem.css";
 
 export default function Contacts(props) {
   const { name, phone, id, sername } = props.contact;

@@ -1,10 +1,8 @@
-import Contacts from "../Contacts/Contacts";
+import Contacts from "../ContactsTableItem/ContactsTableItem";
 import "./ContactsTable.css";
 
 export default function ContactsTable(props) {
-  const { contacts } = props;
-  const { onClickDelete } = props;
-  const { onShowForma } = props;
+  const { contacts, onClickDelete} = props;
 
   return (
     <>
@@ -23,9 +21,6 @@ export default function ContactsTable(props) {
             />
           ))}
         </ul>
-        <button className="add-contact" onClick={onShowForma}>
-          Добавить котакт
-        </button>
       </div>
     </>
   );

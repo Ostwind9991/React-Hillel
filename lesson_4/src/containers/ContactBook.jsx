@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { API_URL } from "../constants";
 import "./ContactBook.css";
-import Forma from "../components/Forma/Forma";
+import Forma from "../components/FormAddContact/FormAddContact";
 import ContactsTable from "../components/ContactsTable/ContactsTable";
+import ButtonAddContact from "../components/ButtonAddContact/ButtonAddContact";
 
 export default function ContactBook() {
   const [contacts, setContacts] = useState([]);
@@ -20,7 +21,7 @@ export default function ContactBook() {
       .then((resp) => resp.json())
       .then((data) => {
         setContacts([...contacts, data]);
-        setPage(!page)
+        setPage(!page);
       });
   };
   const onClickDelete = (id) => {
@@ -40,15 +41,17 @@ export default function ContactBook() {
     <>
       <h1>Contact Book</h1>
       {page === true ? (
-        <ContactsTable
-          contacts={contacts}
-          onClickDelete={onClickDelete}
-          onShowForma={onShowNextPage}
-        />
+        <>
+          <ContactsTable contacts={contacts} 
+          onClickDelete={onClickDelete} 
+          />
+          <ButtonAddContact 
+          onShowForma={onShowNextPage} 
+          />
+        </>
       ) : (
-        <Forma 
-          onSubmitButton={onSubmitButton} 
-          onShowContact={onShowNextPage} 
+        <Forma onSubmitButton={onSubmitButton} 
+        onShowContact={onShowNextPage} 
         />
       )}
     </>

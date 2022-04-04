@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./Forma.css";
+import "./FormAddContact.css";
 
 export default function Forma(props) {
   const [name, setName] = useState("");
