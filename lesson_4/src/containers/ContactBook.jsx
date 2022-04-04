@@ -18,7 +18,10 @@ export default function ContactBook() {
       body: JSON.stringify(newElem),
     })
       .then((resp) => resp.json())
-      .then((data) => setContacts([...contacts, data]), setPage(!page));
+      .then((data) => {
+        setContacts([...contacts, data]);
+        setPage(!page)
+      });
   };
   const onClickDelete = (id) => {
     fetch(API_URL + "/" + id, {
