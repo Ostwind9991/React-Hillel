@@ -5,7 +5,8 @@ export default function Forma(props) {
   const [name, setName] = useState("");
   const [sername, setSername] = useState("");
   const [phone, setPhone] = useState("");
-  const onSubmit = () => {
+  const onSubmit = (e) => {
+    e.preventDefault();
     const newElem = {
       name: name,
       phone: phone,
