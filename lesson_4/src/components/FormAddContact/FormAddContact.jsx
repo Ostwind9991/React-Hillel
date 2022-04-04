@@ -2,15 +2,17 @@ import { useState } from "react";
 import "./FormAddContact.css";
 
 export default function Forma(props) {
-  const [name, setName] = useState("");
-  const [sername, setSername] = useState("");
-  const [phone, setPhone] = useState("");
+  const [name, setName] = useState(props.selectedContact.name);
+  const [surname, setSurname] = useState(props.selectedContact.sername);
+  const [phone, setPhone] = useState(props.selectedContact.phone);
+
   const onSubmit = (e) => {
     e.preventDefault();
     const newElem = {
       name: name,
       phone: phone,
-      sername: sername,
+      surname: surname,
+      id: props.selectedContact.id,
     };
     props.onSubmitButton(newElem);
   };
@@ -21,18 +23,21 @@ export default function Forma(props) {
         <form className="forma">
           <h2>Добавить контакт</h2>
           <input
+            defaultValue={props.selectedContact.name}
             type="text"
             name="name"
             onChange={(event) => setName(event.target.value)}
             placeholder="Имя"
           />
           <input
+            defaultValue={props.selectedContact.surname}
             type="text"
-            name="sername"
-            onChange={(event) => setSername(event.target.value)}
+            name="surname"
+            onChange={(event) => setSurname(event.target.value)}
             placeholder="Фамилия"
           />
           <input
+            defaultValue={props.selectedContact.phone}
             type="phone"
             name="phone"
             onChange={(event) => setPhone(event.target.value)}
@@ -42,7 +47,7 @@ export default function Forma(props) {
             <button className="add" onClick={onSubmit}>
               Сохранить
             </button>
-            <button className="close" onClick={props.onShowContact}>
+            <button className="close" onClick={props.onShowNextPage}>
               Отмена
             </button>
           </div>

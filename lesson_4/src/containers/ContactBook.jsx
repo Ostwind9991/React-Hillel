@@ -1,40 +1,58 @@
 import { useState, useEffect } from "react";
-import { API_URL } from "../constants";
 import "./ContactBook.css";
 import Forma from "../components/FormAddContact/FormAddContact";
 import ContactsTable from "../components/ContactsTable/ContactsTable";
 import ButtonAddContact from "../components/ButtonAddContact/ButtonAddContact";
+import * as contactsService from "../services/contactsService";
 
 export default function ContactBook() {
+  const [selectedContact, setSelectedContact] = useState("");
   const [contacts, setContacts] = useState([]);
   const [page, setPage] = useState(true);
+
   const onShowNextPage = (e) => {
     e.preventDefault();
+    setSelectedContact("");
     setPage(!page);
   };
-  const onSubmitButton = (newElem) => {
-    fetch(API_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newElem),
-    })
-      .then((resp) => resp.json())
-      .then((data) => {
-        setContacts([...contacts, data]);
-        setPage(!page);
-      });
+
+  const onSubmitButton = (contact) => {
+    if (contact.id) {
+      updateContact(contact);
+    } else {
+      createContact(contact);
+    }
+    setSelectedContact("");
+    setPage(!page);
   };
-  const onClickDelete = (id) => {
-    fetch(API_URL + "/" + id, {
-      method: "DELETE",
+
+  const createContact = (contact) => {
+    contactsService.createContact(contact).then((data) => {
+      setContacts([...contacts, data]);
     });
+  };
+  const updateContact = (contact) => {
+    contactsService.updateContact(contact).then((data) => {
+      const newContacts = contacts.map((el) =>
+        el.id === contact.id ? contact : el
+      );
+      setContacts(newContacts);
+    });
+  };
+
+  const onClickSelect = (selectedContact) => {
+    setSelectedContact(selectedContact);
+    setPage(!page);
+  };
+
+  const onClickDelete = (id) => {
+    contactsService.deleteContact(id);
     const newContacts = contacts.filter((contact) => contact.id !== id);
     setContacts(newContacts);
   };
+
   useEffect(() => {
-    fetch(API_URL)
-      .then((resp) => resp.json())
-      .then((data) => setContacts(data));
+    contactsService.updateContactTable().then((data) => setContacts(data));
   }, []);
 
   return (
@@ -42,16 +60,18 @@ export default function ContactBook() {
       <h1>Contact Book</h1>
       {page === true ? (
         <>
-          <ContactsTable contacts={contacts} 
-          onClickDelete={onClickDelete} 
+          <ContactsTable
+            contacts={contacts}
+            onClickDelete={onClickDelete}
+            onClickSelect={onClickSelect}
           />
-          <ButtonAddContact 
-          onShowForma={onShowNextPage} 
-          />
+          <ButtonAddContact onShowNextPage={onShowNextPage} />
         </>
       ) : (
-        <Forma onSubmitButton={onSubmitButton} 
-        onShowContact={onShowNextPage} 
+        <Forma
+          onSubmitButton={onSubmitButton}
+          onShowNextPage={onShowNextPage}
+          selectedContact={selectedContact}
         />
       )}
     </>

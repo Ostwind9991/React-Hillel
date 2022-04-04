@@ -2,7 +2,7 @@ import Contacts from "../ContactsTableItem/ContactsTableItem";
 import "./ContactsTable.css";
 
 export default function ContactsTable(props) {
-  const { contacts, onClickDelete} = props;
+  const { contacts, onClickDelete, onClickSelect } = props;
 
   return (
     <>
@@ -18,6 +18,7 @@ export default function ContactsTable(props) {
               key={contact.id}
               contact={contact}
               onClickDelete={onClickDelete}
+              onClickSelect={onClickSelect}
             />
           ))}
         </ul>

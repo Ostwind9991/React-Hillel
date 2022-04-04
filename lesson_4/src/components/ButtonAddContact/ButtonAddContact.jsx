@@ -1,10 +1,10 @@
 import "./ButtonAddContact.css";
 
 export default function ButtonAddContact(props) {
-  const { onShowForma } = props;
+  const { onShowNextPage } = props;
 
   return (
-    <button className="add-contact" onClick={onShowForma}>
+    <button className="add-contact" onClick={onShowNextPage}>
       Добавить котакт
     </button>
   );
