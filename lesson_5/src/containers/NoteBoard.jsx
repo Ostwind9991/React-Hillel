@@ -27,7 +27,7 @@ export default function NoteBoard() {
 
   const updateNotesClick = (updateNote) => {
     updateNotes(updateNote).then((data) => {
-      const newNotes = data.map((el) => (el.id === data.id ? data : el));
+      const newNotes = notes.map((el) => (el.id === data.id ? data : el));
       setNotes(newNotes);
     });
   };
