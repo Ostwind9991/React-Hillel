@@ -1,25 +1,16 @@
-import { useEffect, useState } from "react";
+import {useState } from "react";
 
-export function useLocalStorage(key, defaultValue = "") {
-  const [value, setValue] = useState(localStorage.getItem(key) || defaultValue);
-
-  useEffect(() => {
-    localStorage.setItem(key, value);
-  }, [value]);
-
-  return [value, setValue];
-}
 
 export function useAsync(cb, defaultValue = []) {
   const [status, setStatus] = useState("IDLE");
   const [data, setData] = useState(defaultValue);
 
   function run() {
-    setStatus("LOADING");
+    setStatus("LOADING NoteBoard");
 
     cb()
       .then((data) => {
-        setStatus("DONE");
+        setStatus("NoteBoard");
         setData(data);
         return data;
       })

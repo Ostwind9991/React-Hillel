@@ -1,7 +1,9 @@
 import "./NoteButton.css";
 
-export default function NoteButton({createNotesClick}) {
+export default function NoteButton({ createNotesClick }) {
   return (
-    <button onClick={()=>createNotesClick()} className="note__button">Добавить стикер</button>
+    <button onClick={() => createNotesClick()} className="note__button">
+      Добавить стикер
+    </button>
   );
 }

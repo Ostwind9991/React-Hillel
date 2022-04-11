@@ -1,7 +1,11 @@
 import "./NoteList.css";
 import NoteItem from "../NoteItem/NoteItem";
 
-export default function NoteList({ notes, deleteNotesClick, updateNotesClick }) {
+export default function NoteList({
+  notes,
+  deleteNotesClick,
+  updateNotesClick,
+}) {
   return (
     <div className="note__list">
       {notes.map((el) => (
