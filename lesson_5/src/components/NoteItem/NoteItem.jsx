@@ -1,12 +1,12 @@
 import { useState } from "react";
 import "./NoteItem.css";
 
-export default function NoteItem({ note, deleteNotesClick, updateNotesClick }) {
+export default function NoteItem({ note, deleteNote, updateNotesClick }) {
   const [description, setDescription] = useState("");
 
   return (
     <div className="note__item">
-      <button onClick={() => deleteNotesClick(note.id)}>X</button>
+      <button onClick={() => deleteNote(note.id)}>X</button>
       <textarea
         rows="5"
         cols="30"
