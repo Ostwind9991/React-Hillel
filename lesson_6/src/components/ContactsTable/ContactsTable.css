@@ -1,0 +1,24 @@
+.list {
+    display: flex;
+    flex-direction: column;
+    padding-inline-start:0;
+}
+
+.title {
+    display: flex;
+    margin: 5px 0;
+    font-weight: 600;
+    border-bottom: 3px solid rgb(138, 40, 40);
+}
+
+.title span {
+    flex-basis: 230px;
+    text-align: left;
+}
+
+
+
+.wrapper-contacts {
+    padding: 0 30%;
+    margin-bottom: 50px;
+}

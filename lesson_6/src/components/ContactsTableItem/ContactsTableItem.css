@@ -1,0 +1,11 @@
+.contact {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;    
+}
+
+.contact span {
+    flex-basis: 180px;
+    text-align: left;
+}
+
