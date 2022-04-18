@@ -1,3 +1,5 @@
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Switch from "@mui/material/Switch";
 import { useEffect, useState } from "react";
 import ButtonAddContact from "../components/ButtonAddContact/ButtonAddContact";
 import ContactsTable from "../components/ContactsTable/ContactsTable";
@@ -29,13 +31,16 @@ export default function ContactBook() {
         }
       >
         <h1>Contact Book</h1>
-        <label>
-          <input
-            type="checkbox"
-            onClick={() => setThemeContactBook(!themeContactBook)}
-          />
-          Ночная тема
-        </label>
+        <FormControlLabel
+          control={
+            <Switch
+              color="primary"
+              onClick={() => setThemeContactBook(!themeContactBook)}
+            />
+          }
+          label="Ночная тема"
+          labelPlacement="top"
+        />
         {page === true ? (
           <>
             <ContactsTable
