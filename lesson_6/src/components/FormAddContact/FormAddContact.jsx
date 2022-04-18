@@ -1,10 +1,13 @@
 import { useState } from "react";
 import "./FormAddContact.css";
+import userContext from "../../context/userContext";
+import { useContext } from "react";
 
 export default function Forma(props) {
   const [name, setName] = useState(props.selectedContact.name);
   const [surname, setSurname] = useState(props.selectedContact.sername);
   const [phone, setPhone] = useState(props.selectedContact.phone);
+  const value = useContext(userContext);
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -19,7 +22,9 @@ export default function Forma(props) {
 
   return (
     <>
-      <div className={"wrapper-forma "}>
+      <div
+        className={value === false ? "wrapper-forma" : "wrapper-forma_black"}
+      >
         <form className="forma">
           <h2>Добавить контакт</h2>
           <input

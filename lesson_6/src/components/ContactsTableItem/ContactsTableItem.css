@@ -1,7 +1,10 @@
 .contact {
     display: flex;
     justify-content: space-between;
-    margin: 5px 0;    
+    margin: 5px 0;
+    padding: 1%;
+    border-radius: 10px;
+
 }
 
 .contact span {
@@ -9,3 +12,26 @@
     text-align: left;
 }
 
+.contact_black {
+    background-color: rgb(44, 56, 216)
+}
+
+.contact button {
+    border-radius: 30px;
+    border: solid 1px #fff;
+    padding: 5px 12px;
+
+}
+
+.contact_black button {
+    background-color: rgb(63, 179, 125);
+}
+
+.contact_white button {
+    background-color: rgb(45, 96, 173);
+    color: #fff;
+}
+
+.contact_white {
+    background-color: blueviolet
+}

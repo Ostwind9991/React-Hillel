@@ -1,7 +1,16 @@
+.wrapper {
+    height: 100vh;
+}
+
+.black {
+    background-color: black;
+    color: #fff;
+}
 
 
-
-
+h1 {
+    margin: 0 0 2% 0;
+}
 
 .inactively {
     display: none;
@@ -10,4 +19,3 @@
 .show {
     display: block;
 }
-

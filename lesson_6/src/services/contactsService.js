@@ -5,7 +5,7 @@ export function createContact(contact) {
 }
 
 export function updateContact(contact) {
-  return api.put("" + "/" + contact.id).then((resp) => resp.data);
+  return api.put(contact.id, contact).then((resp) => resp.data);
 }
 
 export function updateContactTable() {
@@ -13,5 +13,5 @@ export function updateContactTable() {
 }
 
 export function deleteContact(id) {
-  return api.delete("" + id).then((resp) => resp.data);
+  return api.delete(id).then((resp) => resp.data);
 }

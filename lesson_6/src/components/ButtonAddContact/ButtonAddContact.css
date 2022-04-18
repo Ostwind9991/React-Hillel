@@ -1,5 +1,14 @@
-.add-contact {
+.add-contact_white {
     width: 150px;
     padding: 5px;
     background-color: aquamarine;
+    border-radius: 30px;
+}
+
+.add-contact_black {
+    width: 150px;
+    padding: 5px;
+    background-color: rgb(224, 210, 210);
+    border: solid 3px #fff;
+    border-radius: 30px;
 }

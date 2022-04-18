@@ -1,5 +1,5 @@
-import * as contactsService from "../services/contactsService";
 import { useState } from "react";
+import * as contactsService from "../services/contactsService";
 
 export function useContactCRUD() {
   const [selectedContact, setSelectedContact] = useState("");
@@ -28,11 +28,10 @@ export function useContactCRUD() {
     });
   };
   const updateContact = (contact) => {
-    contactsService.updateContact(contact).then(() => {
-      const newContacts = contacts.map((el) =>
-        el.id === contact.id ? contact : el
+    contactsService.updateContact(contact).then((data) => {
+      setContacts((contacts) =>
+        contacts.map((item) => (item.id === contact.id ? data : item))
       );
-      setContacts(newContacts);
     });
   };
 
