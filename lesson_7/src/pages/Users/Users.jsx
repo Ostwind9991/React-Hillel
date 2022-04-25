@@ -1,27 +1,38 @@
-import "./styles.css";
-import {Link } from "react-router-dom";
-import useUsers from "../../hooks/useUsers"
-import UsersItem from "../../components/UsersItem/UsersItem"
+import Breadcrumbs from "@mui/material/Breadcrumbs";
+import List from "@mui/material/List";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
+import UsersItem from "../../components/UsersItem";
+import useUsers from "../../hooks/useUsers";
 
 function Users() {
-const {run, users} =useUsers()
-useEffect(()=>run(),[])
+  const { run, users } = useUsers();
+  useEffect(() => run(), []);
 
-  return (    <>    <div>
-    <Link to={"/"}>Dashboard</Link>
-  </div>
-  {users.map((user) => (
-            <UsersItem
-              key={user.id}
-              user={user}
-            />
-          ))}  </>
-  )
-  
-
-    
-  
+  return (
+    <>
+      <Breadcrumbs>
+        <Link className="Breadcrumbslink" to={"/"}>
+          Home
+        </Link>
+        <Link className="Breadcrumbslink_target" to={"/users"}>
+          Users
+        </Link>
+      </Breadcrumbs>
+      <List
+        sx={{
+          width: "100%",
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "space-around",
+        }}
+      >
+        {users.map((user) => (
+          <UsersItem key={user.id} user={user} />
+        ))}
+      </List>
+    </>
+  );
 }
 
 export default Users;

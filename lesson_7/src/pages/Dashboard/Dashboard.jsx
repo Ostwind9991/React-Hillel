@@ -1,13 +1,23 @@
+import Button from "@mui/material/Button";
+import ButtonGroup from "@mui/material/ButtonGroup";
+import { Link } from "react-router-dom";
 import "./styles.css";
-import {Link } from "react-router-dom";
 
 function Dashboard() {
-  return (   <>     <div>
-    <Link to={"/albums"}>Albums</Link> | <Link to={"/users"}>Users</Link>
-  </div>
-  <h1>Dashboard</h1>
-  </>)
-  
+  return (
+    <section className="dashboard">
+      <h1>Dashboard</h1>
+
+      <ButtonGroup variant="contained">
+        <Link className="link" to={"/albums"}>
+          <Button color="success">Albums</Button>
+        </Link>
+        <Link className="link" to={"/users"}>
+          <Button color="secondary">Users</Button>
+        </Link>
+      </ButtonGroup>
+    </section>
+  );
 }
 
 export default Dashboard;

@@ -1,25 +1,25 @@
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Menu from "./components/Menu";
+import Albums from "./pages/Albums/Albums";
 import Dashboard from "./pages/Dashboard/Dashboard";
-import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
-import Albums from "./pages/Albums/Albums"
-import Users from "./pages/Users/Users"
-import Menu from "./components/Menu/Menu"
+import Users from "./pages/Users/Users";
 
 function App() {
   return (
-      <BrowserRouter>
+    <BrowserRouter>
       <Menu />
-        <Switch>
-          <Route path={"/"} exact>
-            <Dashboard />
-          </Route>
-          <Route path={"/albums"}>
-            <Albums />
-          </Route>
-          <Route path={"/users"}>
-            <Users />
-          </Route>
-        </Switch>
-      </BrowserRouter>
+      <Switch>
+        <Route path={"/"} exact>
+          <Dashboard />
+        </Route>
+        <Route path={"/albums"}>
+          <Albums />
+        </Route>
+        <Route path={"/users"}>
+          <Users />
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
 }
 

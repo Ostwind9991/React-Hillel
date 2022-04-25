@@ -1,0 +1,28 @@
+.dashboard {
+    text-align: center;
+}
+
+.link button {
+    color: white;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.link  {
+    text-decoration: none;
+    margin: 10px;
+    color: white;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.Breadcrumbslink {
+    color: rgba(0, 0, 0, 0.6);
+    text-decoration: none;
+}
+
+.Breadcrumbslink_target {
+    color: rgba(0, 0, 0, 0.87);
+    text-decoration: none;
+
+}
