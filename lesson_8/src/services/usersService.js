@@ -1,6 +1,6 @@
-import {jsonApi} from "../api/api";
-import { USERS_URI } from "../constants";
+import {mockApi} from "../api/api";
+import { CONTACTS_URI } from "../constants";
 
 export function getUsers() {
-  return jsonApi.get(USERS_URI).then((resp) => resp.data);
+  return mockApi.get(CONTACTS_URI).then((resp) => resp.data);
 }
