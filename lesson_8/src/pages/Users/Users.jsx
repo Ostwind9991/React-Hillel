@@ -4,11 +4,14 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import UsersItem from "../../components/UsersItem";
 import useUsers from "../../hooks/useUsers";
+import Button from "@mui/material/Button";
 
 function Users() {
-  const { run, users } = useUsers();
-  useEffect(() => {run()}, []);
-
+  const { run, users, deleteUser, onSubmitButton } = useUsers();
+  useEffect(() => {
+    run();
+  }, []);
+  
   return (
     <>
       <Breadcrumbs>
@@ -19,6 +22,11 @@ function Users() {
           Users
         </Link>
       </Breadcrumbs>
+      <Link to={"newuser"}>
+        <Button variant="contained" color="success">
+          Новый
+        </Button>
+      </Link>
       <List
         sx={{
           width: "100%",
@@ -28,7 +36,13 @@ function Users() {
         }}
       >
         {users.map((user) => (
-          <UsersItem key={user.id} user={user} />
+          <UsersItem
+            key={user.id}
+            user={user}
+            id={user.id}
+            deleteUser={deleteUser}
+            onSubmitButton={onSubmitButton}
+          />
         ))}
       </List>
     </>
