@@ -5,7 +5,7 @@ import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import { Link } from "react-router-dom";
 
-function UsersItem({ user, deleteUser, onSubmitButton }) {
+function UsersItem({ user, deleteUser }) {
   const { name, surname, phone, id } = user;
   return (
     <ListItem
@@ -47,11 +47,8 @@ function UsersItem({ user, deleteUser, onSubmitButton }) {
           padding: "20px 0 10px 0 ",
         }}
       >
-        <Link to={'edituser/'+ id}>
-          <Button
-            variant="contained"
-            color="success"
-          >
+        <Link to={"edituser/" + id}>
+          <Button variant="contained" color="success">
             Редактировать
           </Button>
         </Link>

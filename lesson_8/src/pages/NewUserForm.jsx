@@ -1,7 +1,7 @@
-import useUsers from "../hooks/useUsers";
-import Form from "../components/Form";
-import { useState } from "react";
 import Typography from "@mui/material/Typography";
+import { useState } from "react";
+import Form from "../components/Form";
+import useUsers from "../hooks/useUsers";
 
 export default function NewUserForm() {
   const [name, setName] = useState("");
@@ -16,23 +16,27 @@ export default function NewUserForm() {
       phone: phone,
       surname: surname,
     };
-    onSubmitButton(newElem)
+    onSubmitButton(newElem);
   };
 
   return (
     <>
-        <Typography variant="h4" align="center" sx={{
-          marginTop:"20px"
-        }}>
-Добавить нового пользователя  </Typography>
-    <Form
-      onSubmit={onSubmit}
-      setName={setName}
-      setSurname={setSurname}
-      setPhone={setPhone}
-      deleteUser={deleteUser}
-    />
+      <Typography
+        variant="h4"
+        align="center"
+        sx={{
+          marginTop: "20px",
+        }}
+      >
+        Добавить нового пользователя{" "}
+      </Typography>
+      <Form
+        onSubmit={onSubmit}
+        setName={setName}
+        setSurname={setSurname}
+        setPhone={setPhone}
+        deleteUser={deleteUser}
+      />
     </>
-
   );
 }

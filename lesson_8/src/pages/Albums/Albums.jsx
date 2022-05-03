@@ -7,7 +7,9 @@ import useAlbums from "../../hooks/useAlbums";
 
 function Albums() {
   const { run, albums } = useAlbums();
-  useEffect(() => {run()}, []);
+  useEffect(() => {
+    run();
+  }, []);
 
   return (
     <>

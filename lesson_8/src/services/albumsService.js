@@ -1,4 +1,4 @@
-import {jsonApi} from "../api/api";
+import { jsonApi } from "../api/api";
 import { ALBUMS_URI } from "../constants";
 
 export function getAlbums() {

@@ -3,7 +3,9 @@ import { useNavigate } from "react-router-dom";
 import {
   addUsers,
   deleteUsers,
-  getUser, getUsers, updateUsers
+  getUser,
+  getUsers,
+  updateUsers
 } from "../services/usersService";
 
 export default function useUsers() {

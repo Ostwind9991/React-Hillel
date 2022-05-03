@@ -1,12 +1,12 @@
+import Box from "@mui/material/Box";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
+import Button from "@mui/material/Button";
 import List from "@mui/material/List";
+import Typography from "@mui/material/Typography";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import UsersItem from "../../components/UsersItem";
 import useUsers from "../../hooks/useUsers";
-import Button from "@mui/material/Button";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
 
 function Users() {
   const { run, users, deleteUser, onSubmitButton } = useUsers();
@@ -29,7 +29,7 @@ function Users() {
           variant="h6"
           sx={{
             margin: "20px",
-            display:"inline-block"
+            display: "inline-block",
           }}
         >
           Добавить нового пользователя{" "}
@@ -40,7 +40,6 @@ function Users() {
           </Button>
         </Link>{" "}
       </Box>
-
       <List
         sx={{
           width: "100%",

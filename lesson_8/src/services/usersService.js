@@ -1,4 +1,4 @@
-import {mockApi} from "../api/api";
+import { mockApi } from "../api/api";
 import { CONTACTS_URI } from "../constants";
 
 export function getUsers() {
@@ -6,7 +6,7 @@ export function getUsers() {
 }
 
 export function getUser(id) {
-  return mockApi.get(CONTACTS_URI+"/"+ id).then((resp) => resp.data);
+  return mockApi.get(CONTACTS_URI + "/" + id).then((resp) => resp.data);
 }
 
 export function addUsers(user) {
@@ -14,9 +14,11 @@ export function addUsers(user) {
 }
 
 export function updateUsers(user) {
-  return mockApi.put(CONTACTS_URI +"/"+ user.id, user).then((resp) => resp.data);
+  return mockApi
+    .put(CONTACTS_URI + "/" + user.id, user)
+    .then((resp) => resp.data);
 }
 
 export function deleteUsers(id) {
-  return mockApi.delete(CONTACTS_URI +"/"+ id).then((resp) => resp.data);
+  return mockApi.delete(CONTACTS_URI + "/" + id).then((resp) => resp.data);
 }
