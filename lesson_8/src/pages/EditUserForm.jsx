@@ -2,9 +2,10 @@ import useUsers from "../hooks/useUsers";
 import Form from "../components/Form";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Typography from "@mui/material/Typography";
 
 export default function EditUserForm() {
-  const { onSubmitButton, getEditUser, edituser } = useUsers();
+  const { onSubmitButton, getEditUser, edituser, deleteUser } = useUsers();
   const params = useParams();
   const {name, surname, phone} = edituser
   const [newname, setName] = useState('');
@@ -36,8 +37,13 @@ export default function EditUserForm() {
 
       return (
 
-    
-        <Form
+    <>
+            <Typography variant="h4" align="center" sx={{
+          marginTop:"20px"
+        }}>
+Редактировать пользователя  </Typography>
+<Form
+        id={params.id}
         newname={newname}
         newsurname={newsurname}
         newphone={newphone}
@@ -45,7 +51,10 @@ export default function EditUserForm() {
           setName={setName}
           setSurname={setSurname}
           setPhone={setPhone}
+          deleteUser={deleteUser}
         />
+    </>
+
       );
     }
 

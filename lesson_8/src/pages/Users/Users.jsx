@@ -5,13 +5,15 @@ import { Link } from "react-router-dom";
 import UsersItem from "../../components/UsersItem";
 import useUsers from "../../hooks/useUsers";
 import Button from "@mui/material/Button";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 
 function Users() {
   const { run, users, deleteUser, onSubmitButton } = useUsers();
   useEffect(() => {
     run();
   }, []);
-  
+
   return (
     <>
       <Breadcrumbs>
@@ -22,11 +24,23 @@ function Users() {
           Users
         </Link>
       </Breadcrumbs>
-      <Link to={"newuser"}>
-        <Button variant="contained" color="success">
-          Новый
-        </Button>
-      </Link>
+      <Box>
+        <Typography
+          variant="h6"
+          sx={{
+            margin: "20px",
+            display:"inline-block"
+          }}
+        >
+          Добавить нового пользователя{" "}
+        </Typography>{" "}
+        <Link to={"newuser"}>
+          <Button variant="contained" color="secondary">
+            Добавить
+          </Button>
+        </Link>{" "}
+      </Box>
+
       <List
         sx={{
           width: "100%",
