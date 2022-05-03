@@ -46,7 +46,6 @@ export default function useUsers() {
       .then(() => {
         navigate("/users");
       });
-    console.log("trtr");
   };
 
   const navigate = useNavigate();

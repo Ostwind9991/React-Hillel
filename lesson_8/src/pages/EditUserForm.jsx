@@ -32,32 +32,30 @@ export default function EditUserForm() {
     setPhone(edituser.phone);
   }, [edituser]);
 
-  if (newsurname == undefined) {
-    <></>;
-  } else {
-    return (
-      <>
-        <Typography
-          variant="h4"
-          align="center"
-          sx={{
-            marginTop: "20px",
-          }}
-        >
-          Редактировать пользователя{" "}
-        </Typography>
-        <Form
-          id={params.id}
-          newname={newname}
-          newsurname={newsurname}
-          newphone={newphone}
-          onSubmit={onSubmit}
-          setName={setName}
-          setSurname={setSurname}
-          setPhone={setPhone}
-          deleteUser={deleteUser}
-        />
-      </>
-    );
-  }
+  return newsurname == undefined ? (
+    <></>
+  ) : (
+    <>
+      <Typography
+        variant="h4"
+        align="center"
+        sx={{
+          marginTop: "20px",
+        }}
+      >
+        Редактировать пользователя{" "}
+      </Typography>
+      <Form
+        id={params.id}
+        newname={newname}
+        newsurname={newsurname}
+        newphone={newphone}
+        onSubmit={onSubmit}
+        setName={setName}
+        setSurname={setSurname}
+        setPhone={setPhone}
+        deleteUser={deleteUser}
+      />
+    </>
+  );
 }
