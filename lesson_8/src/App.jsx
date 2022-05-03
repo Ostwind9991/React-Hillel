@@ -6,10 +6,10 @@ import {
 import Menu from "./components/Menu";
 import Albums from "./pages/Albums/Albums";
 import Dashboard from "./pages/Dashboard/Dashboard";
-import Users from "./pages/Users/Users";
 import Page404 from "./pages/Page404";
 import NewUserForm from "./pages/NewUserForm"
 import EditUserForm from "./pages/EditUserForm"
+import UserTable from "./pages/UserTable"
 
 function App() {
   return (    
@@ -17,7 +17,7 @@ function App() {
       <Menu />
       <Routes>
         <Route path={"albums"} element={<Albums />}/>
-        <Route path={"users"} element={<Users />}/>
+        <Route path={"users"} element={<UserTable />}/>
           <Route path={"users/newuser"} element={<NewUserForm />}/>
           <Route path={"users/edituser/:id"} element={<EditUserForm />}/>
         <Route path={"/"} element={<Dashboard />}/>
