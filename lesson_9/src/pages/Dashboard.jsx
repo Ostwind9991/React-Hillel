@@ -6,7 +6,6 @@ function Dashboard() {
   return (
     <Box sx={{ textAlign: "center" }}>
       <h1>Dashboard</h1>
-
       <Link className="link" to={"/todo"}>
         <Button variant="contained" color="success">
           ToDo

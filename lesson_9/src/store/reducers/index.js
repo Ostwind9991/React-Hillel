@@ -1,5 +1,7 @@
 import {
-    ACTION_ADD_TODO, ACTION_DEL_TODO, ACTION_TOGGLE_TODO_IS_DONE
+  ACTION_ADD_TODO,
+  ACTION_DEL_TODO,
+  ACTION_TOGGLE_TODO_IS_DONE,
 } from "../../constants/index";
 
 const INITIAL_STATE = {
@@ -7,27 +9,27 @@ const INITIAL_STATE = {
     {
       id: "14",
       title: "Сделать утреннюю зарядку",
-      completed: true,
+      isDone: true,
     },
     {
       id: "16",
       title: "Купить продуктьі",
-      completed: false,
+      isDone: false,
     },
     {
       id: "18",
       title: "Сделать домашнее задание",
-      completed: false,
+      isDone: false,
     },
     {
       id: "19",
       title: "Сходить в кино",
-      completed: true,
+      isDone: true,
     },
     {
       id: "20",
       title: "Позвонить другу",
-      completed: false,
+      isDone: false,
     },
   ],
 };
@@ -51,7 +53,7 @@ export default function reducer(state = INITIAL_STATE, { type, payload }) {
         } else {
           arrFood.id = String(index);
           arrFood.title = `${payload}`;
-          arrFood.completed = false;
+          arrFood.isDone = false;
           break;
         }
       }

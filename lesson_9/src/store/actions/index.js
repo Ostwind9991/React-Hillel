@@ -1,5 +1,7 @@
 import {
-  ACTION_ADD_TODO, ACTION_DEL_TODO, ACTION_TOGGLE_TODO_IS_DONE
+  ACTION_ADD_TODO,
+  ACTION_DEL_TODO,
+  ACTION_TOGGLE_TODO_IS_DONE,
 } from "../../constants/index";
 
 export const toogleIsDone = (payload) => ({
